@@ -5,6 +5,10 @@ local service = loadstring(
 )();
 
 local get_children_which_are_a = function(instance: Instance, class: string): { Instance }
+    if (not instance or not class) then
+        return nil;
+    end
+
     local children = { };
 
     for _, value in instance:GetChildren() do
@@ -45,10 +49,18 @@ function get.weapon(): Model
 end
 
 function get.states(character: Model): Folder
+    if (not character) then
+        return nil;
+    end
+
     return character:FindFirstChild("State");
 end
 
 function get.state(name: string): ValueBase
+    if (not name) then
+        return nil;
+    end
+
     local character = get.character();
 
     if (not character) then
