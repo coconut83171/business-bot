@@ -4,7 +4,7 @@ local service = loadstring(
     }).Body
 )();
 
-local get_children_which_are_a = function(instance: Instance, class: string)
+local get_children_which_are_a = function(instance: Instance, class: string): { Instance }
     local children = { };
 
     for _, value in instance:GetChildren() do
